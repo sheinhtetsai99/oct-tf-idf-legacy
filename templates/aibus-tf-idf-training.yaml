@@ -1,0 +1,101 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: aibus-tf-idf-text-classifier-training
+  annotations:
+    scenarios.ai.sap.com/description: "AI Content: TF IDF Text Classifier"
+    scenarios.ai.sap.com/name: aibus-tf-idf-text-classifier
+    executables.ai.sap.com/description: Training Executable for TF IDF Text Classifier
+    executables.ai.sap.com/name: aibus-tf-idf-text-classifier-training
+    artifacts.ai.sap.com/training-data.kind: "dataset"
+    artifacts.ai.sap.com/trained-model.kind: "model"
+  labels:
+    scenarios.ai.sap.com/id: 887b31df-786e-48c0-8368-34b5f73cdd6c
+    ai.sap.com/version: "0.0.1"
+    ai.sap.com/resourcePlan: basic
+spec:
+  entrypoint: sti-rf-training
+  imagePullSecrets:
+    - name: tf-idf-classifier-docker-secret
+  arguments:
+    parameters:
+      - name: message
+        value: hello world
+      - name: message1
+        value: hello world
+  templates:
+    - name: sti-rf-training
+      metadata:
+        labels:
+          ai.sap.com/resourcePlan: basic
+        annotations:
+          sidecar.istio.io/inject: "false"
+      inputs:
+        artifacts:
+          - name: training-data
+            path: /data
+      outputs:
+        artifacts:
+          - name: trained-model
+            path: /job/job1
+            globalName: trained-model
+            archive:
+              none: {}
+      container:
+        image: build-releases.common.repositories.cloud.sap/com.sap.aibus/tf-idf-classifier-training:1.0.0
+        command:
+          - /bin/sh
+          - "-c"
+        args:
+          - |
+
+            set -e;
+            echo "Start Training";
+            echo "$USER";
+            echo $(id);
+            echo $(whoami);
+            ls -ldn /job;
+            ls -ld /job;
+            ls -LR /data;
+            python3 /app/train.py;
+            ls -LR /job;
+            echo "Done."
+        env:
+          - name: DATASET
+            value: sfsf-json
+          - name: DATASET_FORMAT
+            value: json
+          - name: CLASSIFIER_TYPE
+            value: rf
+          - name: GRIDSEARCH_SCORING
+            value: fbeta
+          - name: FBETA
+            value: "1"
+          - name: PREPROCESSING_LANGUAGE
+            value: en_core_web_sm
+          - name: AUTH_URL
+            value: http://uaa:8000
+          - name: CLIENT_ID
+            value: xxx
+          - name: CLIENT_SECRET
+            value: xxx
+          - name: INT_CLIENT_ID
+            value: test
+          - name: INT_CLIENT_SECRET
+            value: test
+          - name: ONBEHALF_CLIENT_ID
+            value: zzz
+          - name: ONBEHALF_CLIENT_SECRET
+            value: zzz
+          - name: SPACY_URL
+            value: http://spacy:5000
+          - name: MODEL_REPO_URL
+            value: file
+          - name: MODEL_REPO_BASEPATH
+            value: /data
+          - name: MODEL_NAME
+            value: model
+          - name: ZONE_ID
+            value: xxx
+          - name: JOB_NAME
+            value: job1

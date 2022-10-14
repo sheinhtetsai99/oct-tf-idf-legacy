@@ -1,0 +1,37 @@
+---
+apiVersion: ai.sap.com/v1alpha1
+kind: ServingTemplate
+metadata:
+  name: aibus-tf-idf-text-classifier-serving
+  annotations:
+    scenarios.ai.sap.com/description: "AI Content: TF IDF Text Classifier"
+    scenarios.ai.sap.com/name: aibus-tf-idf-text-classifier
+    executables.ai.sap.com/description: Serving Executable for TF IDF Text Classifier
+    executables.ai.sap.com/name: aibus-tf-idf-text-classifier-serving
+  labels:
+    scenarios.ai.sap.com/id: 887b31df-786e-48c0-8368-34b5f73cdd6c
+    ai.sap.com/version: "0.0.1"
+spec:
+  imagePullSecrets:
+  - name: tf-idf-classifier-docker-secret
+  inputs:
+    artifacts:
+    - name: modelArtifactId
+  template:
+    spec: |
+      predictor:
+        minReplicas: 1
+        containers:
+        - name: kserve-container
+          image: build-releases.common.repositories.cloud.sap/com.sap.aibus/tf-idf-classifier-serving:1.0.0
+          ports:
+          - containerPort: 9001
+            protocol: TCP
+          env:
+          - name: STORAGE_URI
+            value: "{{inputs.artifacts.modelArtifactId}}"
+          - name: MODEL_URI
+            value: /mnt/models/model.joblib
+        imagePullSecrets:
+        - name: tf-idf-classifier-docker-secret
+    apiVersion: serving.kserve.io/v1beta1
