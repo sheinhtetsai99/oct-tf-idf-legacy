@@ -10,7 +10,7 @@ metadata:
     executables.ai.sap.com/name: aibus-tf-idf-text-classifier-serving-legacy
   labels:
     scenarios.ai.sap.com/id: 887b31df-786e-48c0-8368-34b5f73cdd6c
-    ai.sap.com/version: "0.0.1"
+    ai.sap.com/version: "0.0.2"
 spec:
   imagePullSecrets:
   - name: tf-idf-classifier-docker-secret
