@@ -23,7 +23,7 @@ spec:
         minReplicas: 1
         containers:
         - name: kserve-container
-          image: build-releases.common.repositories.cloud.sap/com.sap.aibus/tf-idf-classifier-serving:1.0.0
+          image: sti.common.repositories.cloud.sap/text-classifier-inference:latest
           ports:
           - containerPort: 9001
             protocol: TCP
