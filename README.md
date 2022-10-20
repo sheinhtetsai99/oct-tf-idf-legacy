@@ -41,7 +41,7 @@
     ```sh
     {
     "path": "templates", # name of the folder you created in github to store templates
-    "repositoryUrl": "https://github.com/xxx", # change link to that of your github repo
+    "repositoryUrl": "xxx", # change link to that of your github repo
     "revision": "HEAD",
     "applicationName": "xxx" # change name accordingly
     }
