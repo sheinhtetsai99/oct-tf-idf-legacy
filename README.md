@@ -10,16 +10,16 @@
 
 1. Build and push docker images to docker registry\
     1. for legacy model:
-    ```sh
-    docker build --target=legacy-serving -t sti.common.repositories.cloud.sap/text-classifier-inference-legacy .
-    docker push sti.common.repositories.cloud.sap/text-classifier-inference-legacy:latest
-    ```
+        ```sh
+        docker build --target=legacy-serving -t sti.common.repositories.cloud.sap/text-classifier-inference-legacy .
+        docker push sti.common.repositories.cloud.sap/text-classifier-inference-legacy:latest
+        ```
 
     1. for non-legacy model:
-    ```sh
-    docker build --target=serving -t sti.common.repositories.cloud.sap/text-classifier-inference .
-    docker push sti.common.repositories.cloud.sap/text-classifier-inference:latest
-    ```
+        ```sh
+        docker build --target=serving -t sti.common.repositories.cloud.sap/text-classifier-inference .
+        docker push sti.common.repositories.cloud.sap/text-classifier-inference:latest
+        ```
 
 1. Configure individual yaml templates
     1. Ensure that docker secret with specified name has been created in postman
