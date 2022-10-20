@@ -1,6 +1,6 @@
 # Deployment Guide on AI Core
 
-## Test serving templates (legacy and non-legacy)
+## Deploy models on AI-Core (legacy and non-legacy)
 1. Ensure that you are logged into internal docker registry on CLI
     ```sh
     docker login sti.common.repositories.cloud.sap
@@ -8,7 +8,7 @@
     username: usually your I number\
     password: create an access token at https://common.repositories.cloud.sap/ui/login/
 
-1. Build and push docker images to docker registry\
+1. Build and push docker images to docker registry
     1. for legacy model:
         ```sh
         docker build --target=legacy-serving -t sti.common.repositories.cloud.sap/text-classifier-inference-legacy .
@@ -37,7 +37,7 @@
     }
     ```
 
-1. Create an application in the postman collection with the below as the body
+1. Create an application in postman with the below as the body
     ```sh
     {
     "path": "templates", # name of the folder you created in github to store templates
@@ -57,6 +57,25 @@
     }
     ````
 
-1. Create an S3 bucket on AWS - https://aws.amazon.com/console/
+1. Create a S3 bucket on AWS - https://aws.amazon.com/console/
+
+1. Create create folders and upload files according to requirement
+
+1. Create object store secret
+    ```sh
+    {
+        "name": "xxx", # change name accordingly
+        "data": {
+            "AWS_ACCESS_KEY_ID": "xxx", # change aws object store id accordingly
+            "AWS_SECRET_ACCESS_KEY": "xxx" # change aws access key accordingly
+        },
+        "type": "S3",
+        "bucket": "xxx", # change name of bucket accordingly
+        "endpoint": "xxx", # change end point, usually s3.ap-southeast-1.amazonaws.com
+        "region": "xxx",# change region accordingly, usually ap-southeast-1
+        "pathPrefix": "xxx" # change according to folder structure made in previous step
+    }
+    ```
+    
 
 
