@@ -8,7 +8,7 @@
     username: usually your I number\
     password: create an access token at https://common.repositories.cloud.sap/ui/login/
 
-2. Build and push docker images to docker registry\
+1. Build and push docker images to docker registry\
     for legacy model:
     ```sh
     docker build --target=legacy-serving -t sti.common.repositories.cloud.sap/text-classifier-inference-legacy .
@@ -21,6 +21,8 @@
     docker push sti.common.repositories.cloud.sap/text-classifier-inference:latest
     ```
 
-3. Configure yaml templates
+1. Configure yaml templates
     1. Ensure that docker secret with specified name has been created in postman
-    2. Ensure that image name has been updated to the image pushed to registry in step 2
+    1. Ensure that image name has been updated to the image pushed to registry in step 2
+
+1. Create git reposio
