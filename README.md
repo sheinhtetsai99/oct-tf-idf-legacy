@@ -26,13 +26,34 @@
     1. Ensure that image name has been updated to the image pushed to registry in step 2
 
 1. Initialise git respository, create a 'templates' folder and store all templates configured in step 3 in it
-
-1. Create an application in AI-Core post man collection with the below as the body\
     ```sh
     {
-    "path": "templates", # name of the folder you created in github
-    "repositoryUrl": "https://github.com/xxx", # change link to that of your github repo
-    "revision": "HEAD",
-    "applicationName": "dc-tf-idf-xxx" # name your application accordingly
+    "name": "xxx", # change name accordingly
+    "password": "xxx", # personal access token as created on github
+    "url": "xxx", # link of github repo
+    "username": "xxx" # your github username
     }
     ```
+
+
+1. Onboard created git repository in postman with the below as the body
+    ```sh
+    {
+    "path": "templates", # name of the folder you created in github to store templates
+    "repositoryUrl": "xxx", # change link to that of your github repo
+    "revision": "HEAD",
+    "applicationName": "xxx" # change name accordingly
+    }
+    ```
+
+1. Create an application in the postman collection with the below as the body
+    ```sh
+    {
+    "path": "templates", # name of the folder you created in github to store templates
+    "repositoryUrl": "https://github.com/xxx", # change link to that of your github repo
+    "revision": "HEAD",
+    "applicationName": "dc-tf-idf-xxx" # change name accordingly
+    }
+    ```
+
+1. 
