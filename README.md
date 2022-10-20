@@ -1,12 +1,12 @@
 # Deployment Guide on AI Core
 
 ## Test serving templates (legacy and non-legacy)
-1. Ensure that you are logged into internal docker registry on CLI\
+1. Ensure that you are logged into internal docker registry on CLI
     ```sh
     docker login sti.common.repositories.cloud.sap
     ```
     username: usually your I number\
-    password: create an access token at https://common.repositories.cloud.sap/ui/login/\
+    password: create an access token at https://common.repositories.cloud.sap/ui/login/
 
 2. Build and push docker images to docker registry
     for legacy model:
