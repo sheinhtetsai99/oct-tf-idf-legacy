@@ -59,9 +59,9 @@
 
 1. Create a S3 bucket on AWS - https://aws.amazon.com/console/
 
-1. Create create folders and upload files according to requirement
+1. Create create folders and upload files according to requirement on S3
 
-1. Create object store secret
+1. Create object store secret on postman with body as below
     ```sh
     {
         "name": "xxx", # change name accordingly
@@ -76,6 +76,40 @@
         "pathPrefix": "xxx" # change according to folder structure made in previous step
     }
     ```
-    
+
+1. Register artifact on postman with body as below
+    ```sh
+        {
+            "kind": "model",
+            "name": "xxx", # change name accordingly
+            "scenarioId": "xxx", # change scenario accordingly
+            "url": "ai://<<name of object store secret name in previous step>>/xxx", # change according to folder structure of object store
+            "labels": [
+                {
+                    "key": "ext.ai.sap.com/xxx", # change accordingly
+                    "value": "xxx" # change accordingly
+                }
+            ],
+            "description": "xxx" # change accordingly
+        }
+    ```
+
+1. Create configuration in postman with artifact id from previous step with body as below
+    ```sh
+    {
+        "name": "xxx", # change name accordingly
+        "scenarioId": "xxx", # change scenario name accordingly
+        "executableId": "xxx", # change executableID acordingly
+        "inputArtifactBindings": [
+            {
+                "key": "modelArtifactId", # ensure that name of artifact binding matches with that in yaml template
+                "artifactId": "xxx" # replace with artifact ID from previous step
+            }
+        ]
+    }
+    ```
+
+
+
 
 
