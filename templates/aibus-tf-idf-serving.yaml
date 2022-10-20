@@ -13,7 +13,7 @@ metadata:
     ai.sap.com/version: "0.0.1"
 spec:
   imagePullSecrets:
-  - name: tf-idf-classifier-docker-secret
+  - name: tf-idf-classifier-docker-secret # ensure that docker secret with this name has been created in postman
   inputs:
     artifacts:
     - name: modelArtifactId

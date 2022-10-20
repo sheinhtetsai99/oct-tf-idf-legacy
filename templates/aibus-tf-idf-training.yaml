@@ -16,7 +16,7 @@ metadata:
 spec:
   entrypoint: sti-rf-training
   imagePullSecrets:
-    - name: tf-idf-classifier-docker-secret
+    - name: tf-idf-classifier-docker-secret # ensure that docker secret has been created in postman
   arguments:
     parameters:
       - name: message
@@ -33,7 +33,7 @@ spec:
       inputs:
         artifacts:
           - name: training-data
-            path: /data
+            path: /data #
       outputs:
         artifacts:
           - name: trained-model
@@ -42,7 +42,7 @@ spec:
             archive:
               none: {}
       container:
-        image: build-releases.common.repositories.cloud.sap/com.sap.aibus/tf-idf-classifier-training:1.0.0
+        image: build-releases.common.repositories.cloud.sap/com.sap.aibus/tf-idf-classifier-training:1.0.0 # change image accordingly
         command:
           - /bin/sh
           - "-c"
