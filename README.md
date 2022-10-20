@@ -1,4 +1,4 @@
-# Deployment Guide on AI Core
+# Deployment Guide on AI Core for TF-IDF classifier
 
 ## Deploy models on AI-Core (legacy and non-legacy)
 1. Ensure that you are logged into internal docker registry on CLI
