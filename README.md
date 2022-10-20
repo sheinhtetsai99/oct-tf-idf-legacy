@@ -109,7 +109,4 @@
     }
     ```
 
-
-
-
-
+1. Create deployment in postman with configuration id from previous step as parameters

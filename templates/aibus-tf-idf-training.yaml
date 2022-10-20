@@ -33,7 +33,7 @@ spec:
       inputs:
         artifacts:
           - name: training-data
-            path: /data #
+            path: /data
       outputs:
         artifacts:
           - name: trained-model
