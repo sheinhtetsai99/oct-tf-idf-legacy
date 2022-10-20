@@ -17,7 +17,7 @@
 
     for non-legacy model:
     ```sh
-    docker build --target=legacy-serving -t sti.common.repositories.cloud.sap/text-classifier-inference-legacy .
+    docker build --target=serving -t sti.common.repositories.cloud.sap/text-classifier-inference .
     docker push sti.common.repositories.cloud.sap/text-classifier-inference:latest
     ```
 
