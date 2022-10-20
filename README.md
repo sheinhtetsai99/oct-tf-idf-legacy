@@ -30,7 +30,7 @@
 1. Onboard created git repository in postman with the below as the body
     ```sh
     {
-    "path": "templates", # name of the folder you created in github to store templates
+    "path": "templates", # name of the folder you created on github to store templates
     "repositoryUrl": "xxx", # change link to that of your github repo
     "revision": "HEAD",
     "applicationName": "xxx" # change name accordingly
@@ -43,8 +43,16 @@
     "path": "templates", # name of the folder you created in github to store templates
     "repositoryUrl": "https://github.com/xxx", # change link to that of your github repo
     "revision": "HEAD",
-    "applicationName": "dc-tf-idf-xxx" # change name accordingly
+    "applicationName": "xxx" # change name accordingly
     }
     ```
 
-1. 
+1. Create docker secret registry
+    ```sh
+    {
+        "data": {
+            ".dockerconfigjson": "{\"auths\":{\"sti.common.repositories.cloud.sap\":{\"username\":\"xxx\", \"password\":\"xxx\"}}}" # username and password is the same as in step 1 
+        },
+        "name": "xxx" # change name according to imagepullsecrets name as written in yaml template
+    }
+    ````
