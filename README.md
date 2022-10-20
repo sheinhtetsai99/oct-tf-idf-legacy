@@ -47,7 +47,7 @@
     }
     ```
 
-1. Create docker secret registry
+1. Create docker secret registry with the below as the body
     ```sh
     {
         "data": {
@@ -56,3 +56,7 @@
         "name": "xxx" # change name according to imagepullsecrets name as written in yaml template
     }
     ````
+
+1. Create an S3 bucket on AWS
+
+
