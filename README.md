@@ -132,4 +132,4 @@
     ```
     1. Add JWT token under 'Headers' section in the following format: 'Bearer <<'jwt token'>>'
 
-1. Send request and you should be able to geta response
+1. Send request and you should be able to get a response
