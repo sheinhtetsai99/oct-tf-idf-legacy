@@ -114,37 +114,22 @@
 1. Once deployed, copy the deployment url and make a new post request
     1. Endpoint: <<deployment url>>/v1/models/tf-idf-classifier:predict
     1. Body: 
-        1. For legacy model: 
-        ```sh
-        {
-        "texts": [
-            "The GeForce RTX™ 2060 is powered by the NVIDIA Turing™ architecture, bringing incredible performance and the power of real-time ray tracing and AI to the latest games and to every gamer. RTX. It’s On.",
-            "NVIDIA® TITAN RTX™ is the fastest PC graphics card ever built. It’s powered by the award-winning Turing™ architecture, bringing 130 Tensor TFLOPs of performance, 576 tensor cores, and 24 GB of ultra-fast GDDR6 memory to your PC.",
-            "NVIDIA’s newest flagship graphics card is a revolution in gaming realism and performance. Its powerful NVIDIA Turing™ GPU architecture, breakthrough technologies, and 11 GB of next-gen, ultra-fast GDDR6 memory make it the world’s ultimate gaming GPU. RTX. It’s On.",
-            "The GeForce® GTX 1660 Ti and 1660 are built with the breakthrough graphics performance of the award-winning NVIDIA Turing™ architecture. Easily upgrade your PC and get performance that rivals the GeForce GTX 1070*, a 16 Series GPU is a blazing-fast supercharger for today’s most popular games, and even faster with modern titles.",
-            "Take on today's most challenging, graphics-intensive games without missing a beat. The GeForce GTX 1070 Ti and GeForce GTX 1070 graphics cards deliver the incredible speed and power of NVIDIA Pascal™—the most advanced gaming GPU architecture ever created. This is the ultimate gaming platform. #GameReady.",
-            "NVIDIA Jetson Nano enables the development of millions of new small, low-power AI systems. It opens new worlds of embedded IoT applications, including entry-level Network Video Recorders (NVRs), home robots, and intelligent gateways with full analytics capabilities.",
-            "In case of multiple occurrences of the maximum values, the indices corresponding to the first occurrence are returned.",
-            "I am sure some bashers of Pens fans are pretty confused about the lack of any kind of posts about the recent Pens massacre of the Devils."
-        ],
-        "options-keys": ["whatever"],
-        "options-values": ["whatever"]
-        }
-        ```
-        1. For non-legacy model: 
-        ```sh
-        {
-        "texts": [
-            "The GeForce RTX™ 2060 is powered by the NVIDIA Turing™ architecture, bringing incredible performance and the power of real-time ray tracing and AI to the latest games and to every gamer. RTX. It’s On.",
-            "NVIDIA® TITAN RTX™ is the fastest PC graphics card ever built. It’s powered by the award-winning Turing™ architecture, bringing 130 Tensor TFLOPs of performance, 576 tensor cores, and 24 GB of ultra-fast GDDR6 memory to your PC.",
-            "NVIDIA’s newest flagship graphics card is a revolution in gaming realism and performance. Its powerful NVIDIA Turing™ GPU architecture, breakthrough technologies, and 11 GB of next-gen, ultra-fast GDDR6 memory make it the world’s ultimate gaming GPU. RTX. It’s On.",
-            "The GeForce® GTX 1660 Ti and 1660 are built with the breakthrough graphics performance of the award-winning NVIDIA Turing™ architecture. Easily upgrade your PC and get performance that rivals the GeForce GTX 1070*, a 16 Series GPU is a blazing-fast supercharger for today’s most popular games, and even faster with modern titles.",
-            "Take on today's most challenging, graphics-intensive games without missing a beat. The GeForce GTX 1070 Ti and GeForce GTX 1070 graphics cards deliver the incredible speed and power of NVIDIA Pascal™—the most advanced gaming GPU architecture ever created. This is the ultimate gaming platform. #GameReady.",
-            "NVIDIA Jetson Nano enables the development of millions of new small, low-power AI systems. It opens new worlds of embedded IoT applications, including entry-level Network Video Recorders (NVRs), home robots, and intelligent gateways with full analytics capabilities.",
-            "In case of multiple occurrences of the maximum values, the indices corresponding to the first occurrence are returned.",
-            "I am sure some bashers of Pens fans are pretty confused about the lack of any kind of posts about the recent Pens massacre of the Devils."
-        ],
-        "options-keys": ["whatever"],
-        "options-values": ["whatever"]
-        }
+    ```sh
+    {
+    "texts": [
+        "The GeForce RTX™ 2060 is powered by the NVIDIA Turing™ architecture, bringing incredible performance and the power of real-time ray tracing and AI to the latest games and to every gamer. RTX. It’s On.",
+        "NVIDIA® TITAN RTX™ is the fastest PC graphics card ever built. It’s powered by the award-winning Turing™ architecture, bringing 130 Tensor TFLOPs of performance, 576 tensor cores, and 24 GB of ultra-fast GDDR6 memory to your PC.",
+        "NVIDIA’s newest flagship graphics card is a revolution in gaming realism and performance. Its powerful NVIDIA Turing™ GPU architecture, breakthrough technologies, and 11 GB of next-gen, ultra-fast GDDR6 memory make it the world’s ultimate gaming GPU. RTX. It’s On.",
+        "The GeForce® GTX 1660 Ti and 1660 are built with the breakthrough graphics performance of the award-winning NVIDIA Turing™ architecture. Easily upgrade your PC and get performance that rivals the GeForce GTX 1070*, a 16 Series GPU is a blazing-fast supercharger for today’s most popular games, and even faster with modern titles.",
+        "Take on today's most challenging, graphics-intensive games without missing a beat. The GeForce GTX 1070 Ti and GeForce GTX 1070 graphics cards deliver the incredible speed and power of NVIDIA Pascal™—the most advanced gaming GPU architecture ever created. This is the ultimate gaming platform. #GameReady.",
+        "NVIDIA Jetson Nano enables the development of millions of new small, low-power AI systems. It opens new worlds of embedded IoT applications, including entry-level Network Video Recorders (NVRs), home robots, and intelligent gateways with full analytics capabilities.",
+        "In case of multiple occurrences of the maximum values, the indices corresponding to the first occurrence are returned.",
+        "I am sure some bashers of Pens fans are pretty confused about the lack of any kind of posts about the recent Pens massacre of the Devils."
+    ],
+    "options-keys": ["whatever"],
+    "options-values": ["whatever"]
+    }
     ```
+    1. Add JWT token under 'Headers' section in the following format: 'Bearer <<jwt token>>'
+
+1. Send request and you should be able to geta response
