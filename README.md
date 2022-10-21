@@ -25,7 +25,7 @@
     1. Ensure that docker secret with specified name has been created in postman
     1. Ensure that image name has been updated to the image pushed to registry in step 2
 
-1. Initialise git respository, create a 'templates' folder and store all templates configured in step 3 in it
+1. Initialise git repository, create a 'templates' folder and store all templates configured in step 3 in it
 
 1. Onboard created git repository in postman with the below as the body
     ```sh
