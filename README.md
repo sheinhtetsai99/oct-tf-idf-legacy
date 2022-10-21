@@ -111,7 +111,7 @@
 
 1. Create deployment in postman with configuration id from previous step as parameters
 
-1. Once deployed, copy the deployment url and make a new post request
+1. Once deployed, copy the deployment url and make a new post request with the following configuraton:
     1. Endpoint: <<'deployment url'>>/v1/models/tf-idf-classifier:predict
     1. Body: 
     ```sh
