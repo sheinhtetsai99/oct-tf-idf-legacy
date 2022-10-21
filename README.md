@@ -112,7 +112,7 @@
 1. Create deployment in postman with configuration id from previous step as parameters
 
 1. Once deployed, copy the deployment url and make a new post request
-    1. Endpoint: <<deployment url>>/v1/models/tf-idf-classifier:predict
+    1. Endpoint: <<'deployment url'>>/v1/models/tf-idf-classifier:predict
     1. Body: 
     ```sh
     {
@@ -130,6 +130,6 @@
     "options-values": ["whatever"]
     }
     ```
-    1. Add JWT token under 'Headers' section in the following format: 'Bearer <<jwt token>>'
+    1. Add JWT token under 'Headers' section in the following format: 'Bearer <<'jwt token'>>'
 
 1. Send request and you should be able to geta response
